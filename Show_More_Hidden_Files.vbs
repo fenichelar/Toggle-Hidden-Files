@@ -6,19 +6,19 @@ Menu2 = "HKEY_CLASSES_ROOT\LibraryFolder\Background\shell\"
 
 More = "Show More Hidden Files\"
 
-Set Command = WScript.CreateObject("WScript.Shell")
+Set Shell = WScript.CreateObject("WScript.Shell")
 
-Command.RegWrite Hidden, 1, "REG_DWORD"
-Command.RegWrite SSHidden, 1, "REG_DWORD"
+Shell.RegWrite Hidden, 1, "REG_DWORD"
+Shell.RegWrite SSHidden, 1, "REG_DWORD"
 
 On Error Resume Next
 
-Command.RegDelete Menu1 & More & "command\"
-Command.RegDelete Menu2 & More & "command\"
+Shell.RegDelete Menu1 & More & "command\"
+Shell.RegDelete Menu2 & More & "command\"
 
-Command.RegDelete Menu1 & More
-Command.RegDelete Menu2 & More
+Shell.RegDelete Menu1 & More
+Shell.RegDelete Menu2 & More
 
 On Error Goto 0
 
-Command.SendKeys "{F5}"
+Shell.SendKeys "{F5}"
